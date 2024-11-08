@@ -1,11 +1,13 @@
 @page "/product"
 @inject ILogger<Products> logger;
 @inject IProductService productService;
+@inject  NavigationManager NavigationManager;
 
 <PageTitle>Products</PageTitle>
 
 <ModuleTitle Title="Products" />
 <link rel="stylesheet" href="Products.razor.css" />
+<button class="btn btn-dark" @onclick="@(()=> NavigationManager.NavigateTo("/addproduct"))">Add product</button>
 
 @if(products?.Count > 0)
 {

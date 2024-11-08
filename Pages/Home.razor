@@ -1,8 +1,21 @@
 ﻿@page "/"
+@inject IConfiguration config
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
-<ModuleTitle Title="Choco"/>
+<ModuleTitle Title="@HelloMessage"/>
 
 Welcome to your new app.
+
+
+
+@code
+{
+    public string? HelloMessage = "";
+
+    protected override void OnInitialized()
+    {
+        HelloMessage = config["helloMessage"];
+    }
+}
